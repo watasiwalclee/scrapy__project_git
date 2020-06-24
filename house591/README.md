@@ -1,0 +1,8 @@
+# scrapy_project
+
+專案名稱house591為爬取全台591房屋交易新建案的資料
+目標網站為https://newhouse.591.com.tw/housing-list.html
+補充:
+網站傳送數據方式為以json傳輸，故對請求的網址傳送相關參數即可得到相對應資訊
+爬蟲範圍為列表資訊以及每個建案的詳細內容並儲存至MySql
+同時也擔心短時間內請求數量過多，故在middleware上設置proxy
