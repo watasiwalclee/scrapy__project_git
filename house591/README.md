@@ -1,5 +1,4 @@
-# scrapy_project
-
+# 591新建案爬蟲
 專案名稱house591為爬取全台591房屋交易新建案的資料
 目標網站為https://newhouse.591.com.tw/housing-list.html
 補充:

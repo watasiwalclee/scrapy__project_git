@@ -1,4 +1,4 @@
-!! 以下專案請慎入，有成人內容
+# !! 以下專案請慎入，有成人內容
 專案名稱wnacg為爬取漫畫專案
 目標網站為https://www.wnacg.org/albums.html
 補充:
