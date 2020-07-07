@@ -13,9 +13,9 @@ class NewAmazingPipeline:
         info = {
             'host':'192.168.0.102',
             'port':3307,
-            'user':'lclee',
-            'passwd':'secret10524',
-            'database':'Tripresso'
+            'user':'',
+            'passwd':'',
+            'database':''
         }
         self.conn = pymysql.connect(**info)
         self.cur = self.conn.cursor()
@@ -49,9 +49,9 @@ class ShiPangPipeline:
         info = {
             'host':'192.168.0.102',
             'port':3307,
-            'user':'lclee',
-            'passwd':'secret10524',
-            'database':'Tripresso'
+            'user':'',
+            'passwd':'',
+            'database':''
         }
         self.conn = pymysql.connect(**info)
         self.cur = self.conn.cursor()
@@ -85,9 +85,9 @@ class NewAmazingDetailPipeline:
         info = {
             'host':'192.168.0.102',
             'port':3307,
-            'user':'lclee',
-            'passwd':'secret10524',
-            'database':'Tripresso'
+            'user':'',
+            'passwd':'',
+            'database':''
         }
         self.conn = pymysql.connect(**info)
         self.cur = self.conn.cursor()
@@ -121,9 +121,9 @@ class ShiPangDetailPipeline:
         info = {
             'host':'192.168.0.102',
             'port':3307,
-            'user':'lclee',
-            'passwd':'secret10524',
-            'database':'Tripresso'
+            'user':'',
+            'passwd':'',
+            'database':''
         }
         self.conn = pymysql.connect(**info)
         self.cur = self.conn.cursor()
