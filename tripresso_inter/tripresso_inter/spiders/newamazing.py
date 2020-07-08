@@ -55,7 +55,7 @@ class NewamazingSpider(scrapy.Spider):
             yield scrapy.FormRequest(url=search_list_data_url, formdata=data, callback=self.parse_lsit)
             
     def parse_detail(self, response):
-        res = response.xpath("//div[@class='product_basic_info animatedParent article']/ul[@class='animated fadeInUpShort slow']//text()").getall()
+        res = response.xpath("//div[contains(@class,'product_basic_info')]/ul[contains(@class,'animated')]//text()").getall()
         res = list(filter(None,[t.strip() for t in res]))
         item = NewAmazingDetailItem()
         item['GrupCd'] = response.meta['GrupCd']
