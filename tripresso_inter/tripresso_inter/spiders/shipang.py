@@ -51,7 +51,7 @@ class ShipangSpider(scrapy.Spider):
             yield scrapy.FormRequest(url=search_list_data_url, formdata=data, callback=self.parse_lsit)
 
     def parse_detail(self, response):
-        res = response.xpath("//div[contains(@class,'product_basic_info')]//ul/li//text()").getall()
+        res = response.xpath("//div[contains(@class,'product_basic_info')]//ul//li//text()").getall()
         res = list(filter(None,[t.strip() for t in res]))
         item = ShiPangDetailItem()
         item['GrupCd'] = response.meta['GrupCd']
