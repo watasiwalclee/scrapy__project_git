@@ -64,25 +64,21 @@ class ShipangSpider(scrapy.Spider):
             with open('error.txt','a+', encoding='utf-8') as f:
                 f.write(str(item['GrupCd']) + '  ' + '沒有旅遊天數' + '\n')
         
-        if '每人訂金：' in res:
-            index = res.index('每人訂金：')
-            if '：' not in res[index+1]: item['diposit'] = res[index+1]
-        else:
-            with open('error.txt','a+', encoding='utf-8') as f:
-                f.write(str(item['GrupCd']) + '  ' + '沒有每人訂金' + '\n')
-
-        if '包含項目：' in res:
-            index = res.index('包含項目：')
-            if '：' not in res[index+1]: item['include_item'] = res[index+1]
-        else:
-            with open('error.txt','a+', encoding='utf-8') as f:
-                f.write(str(item['GrupCd']) + '  ' + '沒有包含項目' + '\n')
-
-        if '不含項目：' in res:
-            index = res.index('不含項目：')
-            if '不含項目：' not in res[-1]: item['not_include_item'] = res[index+1]
-        else:
-            with open('error.txt','a+', encoding='utf-8') as f:
-                f.write(str(item['GrupCd']) + '  ' + '沒有不含項目' + '\n')
+        # 每人訂金，團費說明，主要特點，包含項目，不含項目爬取
+        current_res = res
+        keys = {'不含項目：':'not_include_item',
+                '包含項目：':'include_item',
+                '主要特點：':'main_chara',
+                '團費說明：':'fee_explanation',
+                '每人訂金：':'diposit'
+        }
+        for key in keys:
+            if key in current_res:
+                index = res.index(key)
+                item[keys[key]] = ''.join(current_res[index+1:])
+                current_res = current_res[:index]
+            else:
+                with open('error.txt','a+', encoding='utf-8') as f:
+                    f.write(item['GrupCd'] + '  ' + '沒有{}\n'.format(key))
 
         yield item

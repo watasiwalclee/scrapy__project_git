@@ -40,6 +40,8 @@ class NewAmazingDetailItem(scrapy.Item):
     GrupCd = scrapy.Field()
     GrupLn = scrapy.Field()
     diposit = scrapy.Field()
+    fee_explanation = scrapy.Field()
+    main_chara = scrapy.Field()
     include_item = scrapy.Field()
     not_include_item = scrapy.Field()
 
@@ -48,5 +50,7 @@ class ShiPangDetailItem(scrapy.Item):
     GrupCd = scrapy.Field()
     GrupLn = scrapy.Field()
     diposit = scrapy.Field()
+    fee_explanation = scrapy.Field()
+    main_chara = scrapy.Field()
     include_item = scrapy.Field()
     not_include_item = scrapy.Field()

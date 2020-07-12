@@ -13,9 +13,9 @@ class NewAmazingPipeline:
         info = {
             'host':'192.168.0.102',
             'port':3307,
-            'user':'',
-            'passwd':'',
-            'database':''
+            'user':'lclee',
+            'passwd':'secret10524',
+            'database':'Tripresso'
         }
         self.conn = pymysql.connect(**info)
         self.cur = self.conn.cursor()
@@ -49,9 +49,9 @@ class ShiPangPipeline:
         info = {
             'host':'192.168.0.102',
             'port':3307,
-            'user':'',
-            'passwd':'',
-            'database':''
+            'user':'lclee',
+            'passwd':'secret10524',
+            'database':'Tripresso'
         }
         self.conn = pymysql.connect(**info)
         self.cur = self.conn.cursor()
@@ -85,15 +85,15 @@ class NewAmazingDetailPipeline:
         info = {
             'host':'192.168.0.102',
             'port':3307,
-            'user':'',
-            'passwd':'',
-            'database':''
+            'user':'lclee',
+            'passwd':'secret10524',
+            'database':'Tripresso'
         }
         self.conn = pymysql.connect(**info)
         self.cur = self.conn.cursor()
 
     def process_item(self, item, spider):
-        # 判斷是否為NewAmazingDetailItem，若不是則跳過該pipeline。
+        # 判斷是否為ShiPangItem，若不是則跳過該pipeline。
         if isinstance(item, items.NewAmazingDetailItem):
             # 查詢資料庫中相同ID的資料
             count = self.cur.execute("select * from Detail where GrupCd='{}'".format(item['GrupCd']))
@@ -121,15 +121,15 @@ class ShiPangDetailPipeline:
         info = {
             'host':'192.168.0.102',
             'port':3307,
-            'user':'',
-            'passwd':'',
-            'database':''
+            'user':'lclee',
+            'passwd':'secret10524',
+            'database':'Tripresso'
         }
         self.conn = pymysql.connect(**info)
         self.cur = self.conn.cursor()
 
     def process_item(self, item, spider):
-        # 判斷是否為ShiPangDetailItem，若不是則跳過該pipeline。
+        # 判斷是否為ShiPangItem，若不是則跳過該pipeline。
         if isinstance(item, items.ShiPangDetailItem):
             # 查詢資料庫中相同ID的資料
             count = self.cur.execute("select * from Detail where GrupCd='{}'".format(item['GrupCd']))
